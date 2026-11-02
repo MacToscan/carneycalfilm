@@ -1,0 +1,32 @@
+---
+import { editorial } from '../content.mjs';
+---
+
+<section
+  class="film section"
+  id="pelicula"
+  aria-labelledby="film-heading"
+>
+  <div class="section-label">
+    <span>01 / La historia</span>
+  </div>
+
+  <div class="film-grid">
+    <div>
+      <p class="eyebrow">Algunos secretos dejan huella</p>
+      <h2 id="film-heading">
+        Las caras de Bélmez,
+        <br />
+        <em>en la gran pantalla.</em>
+      </h2>
+    </div>
+    <div class="story-copy">
+      {editorial.synopsis.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+      <p class="novel-credit">
+        Basada en la novela <em>Carne y cal</em>, de Dídac Toscano Martín.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import { film } from '../content.mjs';
+const credits = [
+  ['Dirección', film.director],
+  ['Guion', film.writers],
+  ['Dirección de fotografía', film.cinematographer],
+  ['Composición BSO', film.composer],
+  ['Producción', film.producer],
+  ['Novela original', film.author],
+];
+---
+
+<section
+  class="section crew"
+  id="equipo"
+  aria-labelledby="crew-heading"
+>
+  <div class="section-label">
+    <span>05 / Equipo</span>
+  </div>
+  <div class="crew-grid">
+    <div class="crew-frame">
+      <p class="eyebrow">Detrás de las paredes</p>
+      <h2 id="crew-heading">
+        El equipo
+        <br />
+        <em>de la película.</em>
+      </h2>
+      <dl>
+        {credits.map(([role, name]) => (
+          <div>
+            <dt>{role}</dt>
+            <dd>{name}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+    <div class="director-note">
+      <p class="eyebrow">Una película de</p>
+      <h3>{film.director}</h3>
+      <p>
+        Del universo de <em>Carne y cal</em> a la gran pantalla.
+      </p>
+      <p class="section-intro">
+        Con guion de Ignacio Malagón y Máximo Bonatti, basada en la novela de Dídac
+        Toscano Martín. Una producción de Maravilla Films.
+      </p>
+    </div>
+  </div>
+</section>

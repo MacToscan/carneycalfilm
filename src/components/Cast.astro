@@ -1,0 +1,52 @@
+---
+import { film } from '../content.mjs';
+---
+
+<section
+  class="section cast"
+  id="reparto"
+  aria-labelledby="cast-heading"
+>
+  <div class="section-label">
+    <span>04 / Reparto</span>
+    <span>Intérpretes y personajes</span>
+  </div>
+  <h2 id="cast-heading">
+    Los nombres.
+    <br />
+    <em>Los personajes.</em>
+  </h2>
+
+  <ul class="cast-grid">
+    {film.cast.map((person) => (
+      <li>
+        {person.photo ? (
+          <img
+            src={person.photo}
+            alt={person.name}
+            width={person.photoWidth}
+            height={person.photoHeight}
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <div class="portrait-placeholder">
+            <span aria-hidden="true">B / C</span>
+            <p>Retrato próximamente</p>
+          </div>
+        )}
+        <h3>{person.name}</h3>
+        <p>{person.role}</p>
+      </li>
+    ))}
+  </ul>
+
+  <ul class="additional-cast">
+    {film.additionalCast.map(([name, role]) => (
+      <li>
+        <h3>{name}</h3>
+        <p>{role}</p>
+      </li>
+    ))}
+  </ul>
+</section>

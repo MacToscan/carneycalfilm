@@ -1,0 +1,54 @@
+---
+import { film } from '../content.mjs';
+
+const formatDate = (date) =>
+  new Intl.DateTimeFormat('es-ES', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(date));
+---
+
+<section
+  class="section press"
+  id="prensa"
+  aria-labelledby="press-heading"
+>
+  <div class="section-label">
+    <span>06 / Noticias y prensa</span>
+  </div>
+  <p class="eyebrow">Más allá de la casa</p>
+  <h2 id="press-heading">
+    Bélmez
+    <br />
+    <em>empieza a dar que hablar.</em>
+  </h2>
+  {film.media.press.length ? (
+    <ul class="press-list">
+      {film.media.press.map((item) => (
+        <li>
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>
+              {item.outlet}
+              {item.date && <time datetime={item.date}>{formatDate(item.date)}</time>}
+            </span>
+            <h3>{item.title}</h3>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <div class="press-empty">
+      <span>Próximamente</span>
+      <p>
+        Las noticias, entrevistas y publicaciones sobre la película tendrán su lugar aquí.
+      </p>
+    </div>
+  )}
+</section>

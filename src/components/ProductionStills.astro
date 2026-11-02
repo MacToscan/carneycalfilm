@@ -1,0 +1,60 @@
+---
+import { film } from '../content.mjs';
+---
+
+<section
+  class="section stills"
+  id="imagenes"
+  aria-labelledby="stills-heading"
+>
+  <div class="section-label">
+    <span>03 / Imágenes de producción</span>
+  </div>
+  <div class="section-heading-row">
+    <div>
+      <p class="eyebrow">Dentro de la casa</p>
+      <h2 id="stills-heading">
+        Lo que guarda
+        <br />
+        <em>cada rincón.</em>
+      </h2>
+    </div>
+    <p class="section-intro">
+      Una mirada al universo de Bélmez.
+      <br />
+      Las primeras fotografías llegarán pronto.
+    </p>
+  </div>
+
+  <div class="stills-grid">
+    {film.media.stills.length
+      ? film.media.stills.map((photo) => (
+          <a
+            class="still-photo"
+            href={photo.src}
+          >
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              width="1600"
+              height="900"
+            />
+            <span>{photo.caption}</span>
+          </a>
+        ))
+      : [1, 2, 3, 4].map((number) => (
+          <div class="still-placeholder">
+            <span
+              class="placeholder-number"
+              aria-hidden="true"
+            >
+              0{number}
+            </span>
+            <p>
+              Fotografía de producción<span>Próximamente</span>
+            </p>
+          </div>
+        ))}
+  </div>
+</section>

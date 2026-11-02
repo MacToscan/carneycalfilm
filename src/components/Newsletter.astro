@@ -1,0 +1,82 @@
+---
+import { newsletter } from '../content.mjs';
+const enabled = Boolean(newsletter.action && newsletter.privacyUrl);
+---
+
+<section
+  class="section newsletter"
+  id="novedades"
+  aria-labelledby="newsletter-heading"
+>
+  <div class="section-label">
+    <span>00 / Sigue la película</span>
+  </div>
+  <p class="eyebrow">Sé el primero en saberlo</p>
+  <h2 id="newsletter-heading">
+    Hay noticias
+    <br />
+    <em>al otro lado.</em>
+  </h2>
+  <p class="section-intro">
+    El primer avance. Las nuevas imágenes. La fecha de estreno.
+    <br />
+    Recibe las novedades de Bélmez en tu correo.
+  </p>
+
+  <!-- No se recogen datos hasta configurar un servicio de suscripción real. -->
+  <form
+    action={enabled ? newsletter.action : undefined}
+    method="post"
+    aria-describedby="newsletter-status"
+  >
+    <fieldset disabled={!enabled}>
+      <legend class="sr-only">Suscripción a novedades de Bélmez</legend>
+      <div class="newsletter-fields">
+        <label>
+          Correo electrónico <span aria-hidden="true">*</span>
+          <input
+            type="email"
+            name="email"
+            autocomplete="email"
+            placeholder="Tu correo electrónico"
+            required
+          />
+        </label>
+        <label>
+          Nombre <span class="optional">(opcional)</span>
+          <input
+            type="text"
+            name="name"
+            autocomplete="given-name"
+            placeholder="Tu nombre"
+          />
+        </label>
+      </div>
+      {enabled && (
+        <label class="consent">
+          <input
+            type="checkbox"
+            name="consent"
+            required
+          />{' '}
+          Quiero recibir novedades de Bélmez y he leído la{' '}
+          <a href={newsletter.privacyUrl}>política de privacidad</a>.
+        </label>
+      )}
+      <button
+        type="submit"
+        class="solid-button"
+      >
+        {enabled ? 'Quiero recibir novedades' : 'Suscripción disponible próximamente'}
+      </button>
+    </fieldset>
+  </form>
+  <p
+    id="newsletter-status"
+    class="availability"
+  >
+    {enabled
+      ? 'Solo noticias de la película. Podrás darte de baja cuando quieras.'
+      : 'El registro todavía no está abierto. Pronto podrás apuntarte aquí.'}
+  </p>
+</section>

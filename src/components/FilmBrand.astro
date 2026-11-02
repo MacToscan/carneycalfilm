@@ -1,0 +1,20 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<!-- Ventana sobre el arte oficial: no se reconstruyen ni sustituyen las letras. -->
+<svg
+  class:list={['film-brand', { compact }]}
+  viewBox="540 3750 2550 830"
+  role="img"
+  aria-label="Bélmez: La historia de Carne y cal"
+>
+  <image
+    href="/images/belmez-poster.jpg"
+    width="3601"
+    height="5400"
+  />
+</svg>

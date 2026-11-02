@@ -1,0 +1,141 @@
+---
+import '../styles.css';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <meta
+      name="theme-color"
+      content="#151b17"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
+    <title>Bélmez: La historia de Carne y cal — Web oficial</title>
+    <meta
+      name="description"
+      content="Bélmez: La historia de Carne y cal. Una película de terror de Eduardo Álvarez, basada en la novela de Dídac Toscano Martín. Una producción de Maravilla Films."
+    />
+  </head>
+
+  <body>
+    <a
+      class="skip"
+      href="#pelicula"
+    >
+      Saltar al contenido
+    </a>
+
+    <!-- Cabecera y navegación -->
+    <header>
+      <a
+        class="producer-brand"
+        href="https://maravillafilms.com/"
+        aria-label="Maravilla Films, productora"
+      >
+        <img
+          src="/images/logo_maravilla_large_opt.webp"
+          alt="Maravilla Films"
+          width="1600"
+          height="461"
+        />
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-navigation"
+        aria-label="Abrir menú"
+      >
+        <span class="menu-label">Menú</span>
+        <span
+          class="menu-icon"
+          aria-hidden="true"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav
+        id="site-navigation"
+        aria-label="Navegación principal"
+      >
+        <a href="#pelicula">Historia</a>
+        <a href="#imagenes">Imágenes</a>
+        <a href="#reparto">Reparto</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#prensa">Prensa</a>
+        <a href="#teaser">Teaser</a>
+      </nav>
+    </header>
+
+    <!-- Contenido de la página -->
+    <main id="inicio">
+      <slot />
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>
+        Una producción de
+        <br />
+        <strong>Maravilla Films</strong>
+      </p>
+      <a
+        class="text-link"
+        href="#inicio"
+      >
+        Volver al inicio ↑
+      </a>
+    </footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const navigation = document.querySelector<HTMLElement>('#site-navigation');
+      const mobile = window.matchMedia('(max-width: 1000px)');
+
+      function setMenu(open: boolean, restoreFocus = false) {
+        toggle?.setAttribute('aria-expanded', String(open));
+        toggle?.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        navigation?.classList.toggle('is-open', open);
+        if (restoreFocus) toggle?.focus();
+      }
+
+      toggle?.addEventListener('click', () => {
+        setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+      });
+
+      navigation?.addEventListener('click', (event) => {
+        if (mobile.matches && (event.target as Element).closest('a'))
+          setMenu(false, true);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+          setMenu(false, true);
+        }
+      });
+
+      document.addEventListener('click', (event) => {
+        const target = event.target as Node;
+        if (!navigation?.contains(target) && !toggle?.contains(target)) setMenu(false);
+      });
+
+      document.addEventListener('focusin', (event) => {
+        const target = event.target as Node;
+        if (!navigation?.contains(target) && !toggle?.contains(target)) setMenu(false);
+      });
+
+      mobile.addEventListener('change', () => setMenu(false));
+    </script>
+  </body>
+</html>
