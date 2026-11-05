@@ -13,3 +13,5 @@
 - Node predeterminado del equipo falla por biblioteca compartida ausente. Node alternativo funcional encontrado en `/opt/homebrew/opt/node@22/bin/node` (22.23.4); usarlo para comprobaciones sin alterar el sistema.
 
 - Validación final: build y formato OK; comprobación SEO OK; HTTP local 200/404 correcto; revisión escritorio y móvil 390 × 844, menú y diálogo OK. `.env` admite SITE_URL; la variable del proceso prevalece. Fuentes y propuestas no publicadas documentadas en `SEO.md`.
+
+- Prensa ampliada el 2026-11-05: MónTerrassa (2026-11-01, título original en catalán) y Abandomoviez (2026-10-29), con enlaces y fechas contrastados. Se conservan las cuatro noticias anteriores y el orden por fecha descendente. Sin publicación.

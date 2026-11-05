@@ -50,6 +50,12 @@ export const film = {
     makingOf: [],
     press: [
       {
+        outlet: 'MónTerrassa',
+        title: 'Terrassa acull el rodatge d’un film de terror sobre les cares de Bélmez',
+        date: '2026-11-01',
+        url: 'https://monterrassa.cat/cultura/terrassa-acull-rodatge-film-terror-sobre-cares-belmez-540578/',
+      },
+      {
         outlet: 'Diario Jaén',
         title:
           'Bélmez: la historia de carne y cal, un largometraje de terror con grandes rostros conocidos',
@@ -69,6 +75,13 @@ export const film = {
           'Las Caras de Belmez dan el salto a la gran pantalla en «Belmez: La Historia de Carne y Cal»',
         date: '2026-10-29',
         url: 'https://www.aullidos.com/noticia/45230/caras-belmez-salto-gran-pantlala-belmez-historia-carne-cal/',
+      },
+      {
+        outlet: 'Abandomoviez',
+        title:
+          'Los misteriosos rostros de Bélmez llegan al cine con una película de terror que comienza hoy su rodaje',
+        date: '2026-10-29',
+        url: 'https://www.abandomoviez.net/noticia.php?film=47444',
       },
       {
         outlet: 'El Blog de Cine Español',
