@@ -14,6 +14,7 @@ import { editorial } from '../content.mjs';
     <h1
       id="hero-heading"
       class="hook"
+      aria-label="Bélmez, la historia de Carne y Cal. Las paredes nunca están vacías."
     >
       Las paredes <br />
       nunca están <br />
@@ -44,7 +45,9 @@ import { editorial } from '../content.mjs';
       aria-haspopup="dialog"
     >
       <img
-        src="/images/belmez-poster.jpg"
+        src="/images/belmez-poster-960.webp"
+        srcset="/images/belmez-poster-480.webp 480w, /images/belmez-poster-960.webp 960w, /images/belmez-poster-1440.webp 1440w"
+        sizes="(max-width: 1000px) 90vw, 45vw"
         alt="Bélmez: La historia de Carne y cal. Cartel oficial con una pared envejecida, retratos antiguos y luz cálida."
         width="1200"
         height="1800"
@@ -85,6 +88,8 @@ import { editorial } from '../content.mjs';
   <img
     src="/images/belmez-poster.jpg"
     alt="Cartel oficial completo de Bélmez: La historia de Carne y cal"
+    loading="lazy"
+    decoding="async"
     width="1200"
     height="1800"
   />

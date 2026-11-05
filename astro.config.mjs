@@ -1,2 +1,9 @@
 import { defineConfig } from 'astro/config';
-export default defineConfig({ output: 'static', devToolbar: { enabled: false } });
+import { siteUrl } from './src/site.mjs';
+
+export default defineConfig({
+  site: siteUrl.href,
+  output: 'static',
+  trailingSlash: 'always',
+  devToolbar: { enabled: false },
+});
