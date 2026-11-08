@@ -9,7 +9,7 @@ export const film = {
   author: 'Dídac Toscano Martín',
   producer: 'Maravilla Films',
   cinematographer: 'Piter Fot',
-  composer: 'Rafael Férnandez',
+  composer: 'Rafael Fernández',
   cast: [
     ['Karra Elejalde', 'Garrido'],
     ['Unax Ugalde', 'Julián'],
