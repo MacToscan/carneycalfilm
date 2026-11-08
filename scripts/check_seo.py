@@ -58,7 +58,10 @@ locations = [e.text for e in ET.parse(dist / 'sitemap.xml').findall('.//{http://
 assert locations == [origin]
 robots = (dist / 'robots.txt').read_text()
 assert 'Allow: /' in robots and 'Disallow:' not in robots
-assert 'Sitemap: ' + origin + 'sitemap.xml' in robots
+assert 'Sitemap: ' + origin + 'sitemap-index.xml' in robots
+index = ET.parse(dist / 'sitemap-index.xml').getroot()
+assert index.tag == '{http://www.sitemaps.org/schemas/sitemap/0.9}sitemapindex'
+assert [e.text for e in index.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')] == [origin + 'sitemap.xml']
 ids = {a['id'] for t, a in home.tags if 'id' in a}
 for tag, attrs in home.tags:
     if tag == 'img':
