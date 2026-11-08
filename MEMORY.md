@@ -1,6 +1,6 @@
 # Memoria operativa
 
-Última actualización: 2026-11-06.
+Última actualización: 2026-11-08.
 
 - Astro estático independiente; una página principal con secciones, 404 y endpoints sitemap/robots. Sin framework cliente ni nuevas dependencias.
 - Git estaba limpio al iniciar la auditoría. Sin commit, push, publicación, DNS ni cambios en la web corporativa.
@@ -22,3 +22,14 @@
 - Validación de galería: build, formato y SEO correctos; comprobación visual 1440 × 1000 y 390 × 844, cambio entre composiciones, ampliación de la seleccionada, navegación, Escape y ancho móvil correctos. Imágenes web ~3,7 MB en total; originales ~208 MB.
 
 - Ajuste posterior 2026-11-06: Imágenes, Equipo y Teaser ocupan el alto disponible bajo la cabecera en escritorio/tablet (ancho >700 px, alto >=480 px); títulos, espacios y collage escalan según viewport. Collages completos y controles dentro de la sección; vídeo siempre 16:9. En móvil, altura natural y espacios reducidos sin recortar fotos. Transición ampliada de 500 a 1100 ms (480 ms salida + 620 ms entrada). Verificado en 1280×720, 1280×600, 1024×768, 820×1180 y 390×844; build/formato/SEO OK.
+
+## Estado vigente · 2026-11-08
+
+- Web publicada en Cloudflare Pages: https://belmezcarneycal.maravillafilms.com. Según Marc, Search Console confirma que el inicio se puede indexar y se ha solicitado su indexación; no equivale a indexación completada.
+- Contacto e Instagram mediante enlaces externos; no hay formulario de suscripción. Galería y ampliaciones WebP (~2,22 MB); nueve originales de rodaje conservados localmente y excluidos de Git. Estas notas sustituyen las previsiones anteriores sobre dominio, galería y suscripción.
+- Ya existía `/sitemap.xml`; faltaba `/sitemap-index.xml`. Añadido índice XML estático con endpoint nativo de Astro que referencia el sitemap existente, sin dependencias nuevas. `robots.txt` anuncia el índice y permite el rastreo público. Corrección publicada en main mediante bbb7921.
+- Única página pública indexable: `/`. 404 excluido y noindex; las secciones son anclas. Verificados dominio definitivo en sitemap, canonical, Open Graph, Twitter y Movie. `astro.config.mjs` usa `siteUrl.href`; no necesita cambios.
+- Validación: npm ci, formato, build y check_seo.py (ampliado para validar índice) correctos; ambos XML generados en dist y HTTP local 200 para los XML y robots mediante servidor estático temporal de dist. La sesión antigua de Astro preview devolvía 500 tras reinstalar dependencias; no se utiliza para validar.
+- Sin cambios en diseño, textos, imágenes o funcionalidades de la página ni en la web principal de Maravilla Films.
+- Comprobación pública previa: Cloudflare devuelve 403 a peticiones automatizadas de ambos XML; robots responde 200 con reglas administradas por Cloudflare. No se modifica su configuración. Volver a comprobar tras desplegar; si persiste 403, revisar reglas de seguridad en Cloudflare.
+- Enviar a Search Console: https://belmezcarneycal.maravillafilms.com/sitemap-index.xml. Marc autoriza publicar la corrección en main para activar el despliegue automático.
