@@ -6,3 +6,6 @@ dist/
 .env.*
 !.env.example
 *.log
+
+# Originales de rodaje: conservar en disco, no necesarios para desplegar.
+assets/originals/stills/

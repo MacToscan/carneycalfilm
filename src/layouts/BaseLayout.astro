@@ -1,5 +1,6 @@
 ---
 import '../styles.css';
+import InstagramLink from '../components/InstagramLink.astro';
 import { seo } from '../seo.mjs';
 interface Props {
   title?: string;
@@ -179,6 +180,9 @@ const verification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
         <a href="#prensa">Prensa</a>
         <a href="#teaser">Teaser</a>
       </nav>
+      <div class="header-instagram">
+        <InstagramLink />
+      </div>
     </header>
 
     <!-- Contenido de la página -->
@@ -241,3 +245,22 @@ const verification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
     </script>
   </body>
 </html>
+
+<style>
+  .header-instagram {
+    position: absolute;
+    right: var(--gutter);
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 1000px) {
+    header .menu-toggle {
+      margin-right: 52px;
+    }
+
+    .header-instagram {
+      right: 16px;
+    }
+  }
+</style>

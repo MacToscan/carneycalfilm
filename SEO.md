@@ -38,7 +38,7 @@ Validación local no equivale a validación de Google, indexación, disponibilid
 
 ## Antes de publicar y Search Console
 
-1. Confirmar dominio definitivo. Copiar `.env.example` a `.env` y ajustar `SITE_URL` (origen HTTPS sin ruta), o pasarlo como variable al compilar (`SITE_URL=https://dominio-definitivo npm run build`); recompilar: actualiza canonical, sitemap, robots, OG y Movie conjuntamente. No desplegar este borrador accidentalmente.
+1. Dominio confirmado: `https://belmezcarneycal.maravillafilms.com`. Es el valor predeterminado; si se define `SITE_URL` en el alojamiento o en `.env`, usar ese mismo origen HTTPS sin ruta; recompilar: actualiza canonical, sitemap, robots, OG y Movie conjuntamente. No desplegar este borrador accidentalmente.
 2. Revisar textos provisionales, previsión de estreno y materiales con el equipo. Aprobar la tarjeta social. La newsletter sigue desactivada y no recoge datos.
 3. Cuando se autorice publicar: configurar certificado HTTPS y un único host. Redirigir HTTP/hosts alternativos e `/index.html` al canonical con 301/308. No se han tocado alojamiento, DNS ni Cloudflare. Evitar fallback universal a inicio: rutas inexistentes deben devolver 404. Las previsualizaciones públicas deben protegerse con acceso del alojamiento.
 4. Comprobar públicamente inicio 200, canonical del dominio final, robots/sitemap 200 con tipo correcto, imagen social 200 pública, 404 real, ausencia de X-Robots-Tag noindex o autenticación en producción. Revisar móvil/escritorio, menú, enlaces, ampliación de cartel, Search Console y validador Schema.org.
@@ -55,4 +55,4 @@ Referencias técnicas: https://docs.astro.build/en/reference/configuration-refer
 - HTTP de vista previa: inicio 200; robots 200; sitemap 200; ruta inexistente 404. Esto no valida un alojamiento futuro.
 - Revisión visual en escritorio y móvil 390 × 844: correcta, sin desbordamiento horizontal en móvil; menú abre y se cierra tras navegar a Historia; ampliación/cierre del cartel correctos. Formulario permanece desactivado como estaba previsto.
 - Sin cambios en CSS, textos creativos ni fuentes editoriales existentes; sin dependencias nuevas. Diseño conservado.
-- Pendientes antes de publicación: confirmar dominio, revisión editorial y tarjeta, alojamiento y pruebas públicas, Search Console y CWV de campo. No se ha solicitado indexación ni se afirma que exista.
+- Pendientes antes de publicación: revisión editorial y tarjeta, alojamiento y pruebas públicas, Search Console y CWV de campo. No se ha solicitado indexación ni se afirma que exista.

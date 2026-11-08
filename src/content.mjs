@@ -1,3 +1,5 @@
+import { stills } from './stills.mjs';
+
 // Fuente editorial: PROJECT_BRIEF.md. No publicar material pendiente.
 export const film = {
   title: 'Bélmez',
@@ -46,7 +48,7 @@ export const film = {
   media: {
     teaser: null,
     trailer: null,
-    stills: [],
+    stills,
     makingOf: [],
     press: [
       {

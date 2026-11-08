@@ -1,0 +1,64 @@
+---
+interface Props {
+  showHandle?: boolean;
+}
+const { showHandle = false } = Astro.props;
+---
+
+<a
+  class="instagram-button"
+  href="https://www.instagram.com/carneycalfilm/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Sigue a @carneycalfilm en Instagram (se abre en otra pestaña)"
+>
+  <svg
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <rect
+      x="3"
+      y="3"
+      width="18"
+      height="18"
+      rx="5"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="4"
+    />
+    <circle
+      cx="17.5"
+      cy="6.5"
+      r="1"
+      fill="currentColor"
+      stroke="none"
+    />
+  </svg>
+  {showHandle && <span>@carneycalfilm</span>}
+</a>
+
+<style>
+  .instagram-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+  }
+
+  .instagram-button:hover {
+    color: var(--gold);
+  }
+</style>

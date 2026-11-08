@@ -1,8 +1,3 @@
----
-import { newsletter } from '../content.mjs';
-const enabled = Boolean(newsletter.action && newsletter.privacyUrl);
----
-
 <section
   class="section newsletter"
   id="novedades"
@@ -20,63 +15,95 @@ const enabled = Boolean(newsletter.action && newsletter.privacyUrl);
   <p class="section-intro">
     El primer avance. Las nuevas imágenes. La fecha de estreno.
     <br />
-    Recibe las novedades de Bélmez en tu correo.
+    Contacta con Maravilla Films para saber más sobre la película.
   </p>
 
-  <!-- No se recogen datos hasta configurar un servicio de suscripción real. -->
-  <form
-    action={enabled ? newsletter.action : undefined}
-    method="post"
-    aria-describedby="newsletter-status"
-  >
-    <fieldset disabled={!enabled}>
-      <legend class="sr-only">Suscripción a novedades de Bélmez</legend>
-      <div class="newsletter-fields">
-        <label>
-          Correo electrónico <span aria-hidden="true">*</span>
-          <input
-            type="email"
-            name="email"
-            autocomplete="email"
-            placeholder="Tu correo electrónico"
-            required
-          />
-        </label>
-        <label>
-          Nombre <span class="optional">(opcional)</span>
-          <input
-            type="text"
-            name="name"
-            autocomplete="given-name"
-            placeholder="Tu nombre"
-          />
-        </label>
-      </div>
-      {enabled && (
-        <label class="consent">
-          <input
-            type="checkbox"
-            name="consent"
-            required
-          />{' '}
-          Quiero recibir novedades de Bélmez y he leído la{' '}
-          <a href={newsletter.privacyUrl}>política de privacidad</a>.
-        </label>
-      )}
-      <button
-        type="submit"
-        class="solid-button"
+  <div class="newsletter-actions">
+    <a
+      class="solid-button contact-button"
+      href="https://maravillafilms.com/contact/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Recibir información sobre la película (se abre en otra pestaña)"
+    >
+      Entérate de las novedades antes que nadie
+    </a>
+    <a
+      class="instagram-link"
+      href="https://www.instagram.com/carneycalfilm/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Sigue a @carneycalfilm en Instagram (se abre en otra pestaña)"
+    >
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        aria-hidden="true"
+        focusable="false"
       >
-        {enabled ? 'Quiero recibir novedades' : 'Suscripción disponible próximamente'}
-      </button>
-    </fieldset>
-  </form>
-  <p
-    id="newsletter-status"
-    class="availability"
-  >
-    {enabled
-      ? 'Solo noticias de la película. Podrás darte de baja cuando quieras.'
-      : 'El registro todavía no está abierto. Pronto podrás apuntarte aquí.'}
-  </p>
+        <rect
+          x="3"
+          y="3"
+          width="18"
+          height="18"
+          rx="5"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
+        />
+        <circle
+          cx="17.5"
+          cy="6.5"
+          r="1"
+          fill="currentColor"
+          stroke="none"
+        />
+      </svg>
+      <span>@carneycalfilm</span>
+    </a>
+  </div>
 </section>
+
+<style>
+  .newsletter-actions {
+    max-width: 720px;
+    margin: 36px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1.6;
+  }
+
+  .newsletter .contact-button:hover,
+  .newsletter .contact-button:focus-visible {
+    color: #101510;
+    background: var(--gold);
+  }
+
+  .instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .instagram-link:hover {
+    color: var(--gold);
+  }
+</style>

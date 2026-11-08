@@ -48,3 +48,7 @@ La ampliación del 29 de octubre incluye espacios de material pendiente autoriza
 - Prensa: añadir `{ title, outlet, date, url }` a `film.media.press`. No se generan publicaciones ficticias.
 - Suscripción: `newsletter.action` y `newsletter.privacyUrl` deben apuntar al servicio real y a la política definitiva. Los campos y el envío están desactivados mientras falte cualquiera de ellos. Adaptar los nombres de campos al proveedor elegido y verificar confirmación, baja y entrega antes de activar. No existe recogida local ni mensajes de éxito simulados.
 - Cartel: hover, ampliación en diálogo y cierre por botón, Escape o fondo; el foco vuelve al botón original.
+
+## Galería de rodaje · 6 noviembre 2026
+
+`src/stills.mjs` contiene las nueve fotos oficiales, sus textos alternativos y dimensiones. `film.media.stills` las expone al componente `ProductionStills.astro`: dos composiciones de 5/4, visor individual y transición de cinta. Los originales se conservan en `assets/originals/stills/`; las copias optimizadas y ampliaciones están en `public/images/stills/`. La transición dura 500 ms, sin reproducción automática, y se omite con movimiento reducido. Si se amplía la colección, revisar la distribución explícita de grupos y sus posiciones en el componente. No se añaden fotos sin permiso editorial.
