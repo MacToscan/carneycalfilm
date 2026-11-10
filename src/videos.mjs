@@ -1,5 +1,9 @@
-// Vídeos oficiales de YouTube, en orden de aparición. El primero es el destacado.
-// Añadir únicamente vídeos publicados y aprobados:
-// { youtubeId: 'ID_REAL', title: 'Lecturas de Bélmez', category: 'Lectura de guion',
-//   description: 'El equipo y los actores reunidos alrededor del guion.' }
-export const videos = [];
+// Vídeos oficiales de YouTube. El primero es el destacado.
+export const videos = [
+  {
+    youtubeId: 'ZJi5RHmThoU',
+    title: 'Lecturas de Bélmez',
+    category: 'Lectura de guion',
+    description: 'El equipo y los actores reunidos alrededor del guion de Bélmez.',
+  },
+];
