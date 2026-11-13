@@ -33,3 +33,9 @@
 - Sin cambios en diseño, textos, imágenes o funcionalidades de la página ni en la web principal de Maravilla Films.
 - Comprobación pública previa: Cloudflare devuelve 403 a peticiones automatizadas de ambos XML; robots responde 200 con reglas administradas por Cloudflare. No se modifica su configuración. Volver a comprobar tras desplegar; si persiste 403, revisar reglas de seguridad en Cloudflare.
 - Enviar a Search Console: https://belmezcarneycal.maravillafilms.com/sitemap-index.xml. Marc autoriza publicar la corrección en main para activar el despliegue automático.
+
+## Galería ampliada · 2026-11-13 (local, sin publicar)
+
+- Añadidas 18 fotos entregadas por Marc a las 9 existentes: 27 en total. Nuevas versiones WebP a 1920, 960 y 240 px (grande, mediana y miniatura); originales de 17,35 MB conservados sin cambios en assets/originals/stills, excluidos de Git. Nuevos WebP ~4,76 MB en conjunto.
+- Foto protagonista sin recortes, miniaturas horizontales, contador individual, flechas y transición breve de interferencia; navegación táctil y con teclado, movimiento reducido, cuadrícula desplegable Ver todas, visor modal nativo con Escape y retorno del foco. Sin avance automático. Sin JavaScript, las miniaturas/cuadrícula enlazan a los WebP completos.
+- Validación en navegador: escritorio 1440×1000, móviles 390×844 y 375×667; 27 fotos, selección, navegación circular, cuadrícula, visor, cierre y ausencia de desbordamiento horizontal correctos. Formato, build y check_seo.py correctos. Originales comparados mediante SHA-256. Sin commit ni push.
